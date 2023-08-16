@@ -169,9 +169,13 @@ def show_exam_result(request, course_id, submission_id):
         total_points += question_points
         total_grade += question.grade
 
-    score = (total_points / total_grade) * 100
+    score = round((total_points / total_grade) * 100.00, 2)
 
-    passed = score >= 80  # Assuming 80% is the passing score
+    passed = False
+
+    # Assuming 80% is the passing score
+    if float(score) >= 80.0:
+        passed = True
 
     context = {
         'user': user,

@@ -101,7 +101,7 @@
                 <!-- Form to collect the selected choices for all questions -->
                 <form
                     id="questionform"
-                    action="###submit_view###"
+                    action="{% url 'onlinecourse:submit' course_id=course.id %}"
                     method="post"
                 >
                     {% csrf_token %}
